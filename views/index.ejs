@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chats System</title>
+</head>
+<body>
+    <h2>All Chats!</h2>
+    <form action="/chats/search" method="GET">
+    <input
+        type="text"
+        name="q"
+        placeholder="🔍 Search by sender, receiver or message..."
+        required
+    >
+    <button type="submit">Search</button>
+</form>
+<br><br>
+    <form method="GET" action="/chats/new">
+        <button>New Chat +</button>
+    </form>
+    <br>
+
+   <% for (let chat of chats) {%>
+        <div class="chat"> 
+            <p id="from"> From <b><%= chat.from%></b></p>
+            <div class="msg">
+                <p><%=chat.msg%>
+                    <br>
+                    <br>
+            <form action="/chats/<%= chat._id %>/edit" method="GET">
+                <button> Edit </button>
+            </form>
+            <br>
+            <form class="delete-form" action="/chats/<%= chat._id %>?_method=DELETE" method="POST">
+                <button> Delete </button>
+            </form>
+                </p>    
+            </div>
+            <p id="Received"> Received by <b><i id="to"><%=chat.to%></i></b> 
+            </p>
+            <hr>
+            <p><%= chat.created_at.toString().split(" ")[4]%></p>
+            <p><%= chat.created_at.toString().split(" ").slice(0,4).join(" ")%></p>
+
+        </div>
+        
+        <br><br>
+   <% }%>
+   <script src="/index.js"></script>
+</body>
+</html>

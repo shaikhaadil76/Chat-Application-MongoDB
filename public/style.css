@@ -1,0 +1,39 @@
+body {
+  margin-left: 20px;
+}
+
+#from {
+  border-radius: 5px;
+}
+
+#Received {
+  border-radius: 5px;
+}
+
+.chat {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid aqua;
+  display: inline-block;
+}
+
+.msg {
+  /* background-color: rgb(109, 109, 239);*/
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+#to {
+  color: red;
+}
+
+button {
+  background-color: rgb(26, 36, 36);
+  color: white;
+  border-radius: 5px;
+  border: 2px solid aqua;
+}
+
+.button:hover {
+  scale: 5px;
+}
